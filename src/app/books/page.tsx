@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { baseUrl, placeHolderImage, status } from '../../utils';
 import { BookType } from '../../../types';
-
+import Header from '../components/header';
 
 const BooksPage = async () => {
   const res = await fetch(`${baseUrl}/api/v1/books`);
@@ -11,6 +11,7 @@ const BooksPage = async () => {
 
   return(
     <>
+      <Header />
       <div className="container mx-auto my-10 px-4 py-8">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {books?.data && books.data.map((book: BookType) => (
